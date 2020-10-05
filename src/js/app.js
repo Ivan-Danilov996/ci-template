@@ -23,11 +23,17 @@ export default getHealth;
 
 
 const array = [
-    {name: 'мечник', health: 10},
+    {name: 'мечник', health: 100},
     {name: 'маг', health: 100},
-    {name: 'лучник', health: 80},
+    {name: 'лучник', health: 100},
   ];
   export function sortByHealth(arr) {
-    return arr.sort((a, b) => a.health < b.health ? 1 : -1);
+    return arr.sort((a, b) => {
+        if (a.health === b.health || a.health < b.health) {
+            return 1
+        } else  {
+            return -1
+        }
+    });
   }
   console.log(sortByHealth(array));
